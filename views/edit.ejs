@@ -1,0 +1,65 @@
+<% layout('/layout/boilerplate') -%>
+      
+      <div class="row" >
+      <h1 class="text-center">Edit Campground</h1>
+      <div class="col-6 offset-3">
+        <form action="/campground/<%=b._id%>?_method=PUT" class="needs-validation" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label" for="title">Title</label>
+                <input class="form-control" type="text" id="title" name="camps[title]" value="<%=b.title%>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+           
+            <div class="mb-3">
+                <label class="form-label" for="location">Location</label>
+                <input class="form-control" type="text" id="location" name="camps[location]" value="<%=b.location%>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+            
+            <div class="mb-3">
+            <div class="input-group">
+                <label class="form-label" for="price">Price</label>
+                <span class="input-group-text">#</span>
+                <input type="text" name="camps[price]" id="price" class="form-control" placeholder="0" value="<%=b.price%>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+              </div>
+             
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="description">Description</label>
+                <textarea class="form-control" type="text" id="description" name="camps[description]" required><%=b.description%></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+            <div class="mb-3">
+              <label for="image" class="form-label">upload image</label>
+              <input class="form-control form-control-sm" id="image" name="image" type="file" multiple>
+            </div>
+            <div class="mb-3">
+              
+            <% for(let i=0;i<b.image.length;i++) {%>
+              
+              <img src="<%=b.image[i].thumb%>" class="img-thumbnail" alt="">
+              <div class="form-check-inlin">
+                <input type="checkbox" id="image<%=i%>" name="deleteimages[]" value="<%=b.image[i].filename%>">
+                <label for="image<%=i%>">Delete</label>
+              </div>
+            
+              <% } %> 
+            
+            </div>
+            <div class="mb-3"><button class="btn btn-success" >Edit</button></div>
+            
+        </form>
+        <a href="/campground">All campgrounds</a>
+      </div>
+      </div>
+      
+      

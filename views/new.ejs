@@ -1,0 +1,60 @@
+<% layout('/layout/boilerplate') -%>
+      
+      <div class="row" >
+      <h1 class="text-center">New Campground</h1>
+      <div class="col-6 offset-3">
+        <form action="/campground" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
+            <div class="mb-3">
+                <label class="form-label" for="title">Title</label>
+                <input class="form-control" type="text" id="title" name="camps[title]" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+       
+            <div class="mb-3">
+                <label class="form-label" for="location">Location</label>
+                <input class="form-control" type="text" id="location" name="camps[location]" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+            
+            
+                <!-- <label class="form-label" for="image">Image URL</label>
+                <input class="form-control" type="text" id="image" name="camps[image]">
+                <div class="valid-feedback">
+                    Looks good!
+                  </div> -->
+                  <div class="mb-3">
+                    <label for="image" class="form-label">upload image</label>
+                    <input class="form-control form-control-sm" id="image" name="image" type="file" multiple>
+                  </div>
+           
+            <div class="mb-3">
+            <div class="input-group">
+                <label class="form-label" for="price">Price</label>
+                <span class="input-group-text">#</span>
+                <input type="text" name="camps[price]" id="price" class="form-control" placeholder="0" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+              </div>
+           
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="description">Description</label>
+                <textarea class="form-control" type="text" id="description" name="camps[description]" required></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+            
+            <div class="mb-3"><button class="btn btn-success" >Add</button></div>
+            
+        </form>
+        <a href="/campground">All campgrounds</a>
+      </div>
+      </div>
+      
+      
