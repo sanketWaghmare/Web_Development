@@ -187,6 +187,7 @@ app.use(session(sesconfig));
 app.use(flash());
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
+const port =process.env.PORT || 3000;
 app.listen(3000,()=>console.log("listening"));
 app.use(express.urlencoded({ extended: true}));
 app.use(express.static(path.join(__dirname,"public")));
