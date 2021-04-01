@@ -42,19 +42,22 @@
               <label for="image" class="form-label">upload image</label>
               <input class="form-control form-control-sm" id="image" name="image" type="file" multiple>
             </div>
+            
             <div class="mb-3">
-              
+              <div class="row">
             <% for(let i=0;i<b.image.length;i++) {%>
-              
+              <div class="col-3">
               <img src="<%=b.image[i].thumb%>" class="img-thumbnail" alt="">
               <div class="form-check-inlin">
                 <input type="checkbox" id="image<%=i%>" name="deleteimages[]" value="<%=b.image[i].filename%>">
                 <label for="image<%=i%>">Delete</label>
               </div>
+            </div>
             
               <% } %> 
             
             </div>
+          </div>
             <div class="mb-3"><button class="btn btn-success" >Edit</button></div>
             
         </form>
