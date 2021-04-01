@@ -38,7 +38,7 @@ reviews:[
 ]
 },{toJSON:{virtuals: true}});
 camp.virtual('properties.popup').get(function(){
-return '<strong><a href="/campgroud/'+this._id+'">'+this.title+'</a></strong>';
+return '<strong><a href="/campground/'+this._id+'">'+this.title+'</a></strong>';
 })
 
 camp.post('findOneAndDelete',async function (obj)
