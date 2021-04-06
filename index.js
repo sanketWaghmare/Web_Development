@@ -266,7 +266,11 @@ app.get("/campground/:id/edit",islogin,catcher(isowner),catcher(async(req,res)=>
 }))
 app.put("/campground/:id",islogin,catcher(isowner),upload.array('image'),valid,catcher(async(req,res)=>{
     const c=await camp.findById(req.params.id);
-   
+    const geodata=await geo.forwardGeocode({
+        query: req.body.camps.location,
+        limit:1
+    }).send();
+    c.geometry=geodata.body.features[0].geometry;
     c.title=req.body.camps.title;
     c.location=req.body.camps.location;
     c.price=req.body.camps.price;
